@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>a_maze_ing</title>
+        <meta charset="UTF-8">
+        <script src="a_maze_ing.js"></script>
+        <script>
+            window.onload = function() {
+                
+                /* create a new canvas and style it to look round */
+                var maze = a_maze_ing(16, 16, 24, 8, '#FED', '#BAF');
+                
+                maze.style.border       = '2px solid #BAF';
+                maze.style.borderRadius = '50%';
+                maze.style.width        = '25%';
+                maze.style.height       = '25%';
+                
+                document.body.appendChild(maze);
+                
+                /* fill in an existing canvas */
+                a_maze_ing(18, 12, 4, 4, '#2F2', '#F22', document.getElementById('c1'));
+                
+                /* set a background canvas */
+                maze = a_maze_ing((window.innerWidth / 32) | 0, (window.innerHeight / 32) | 0, 32, 32, '#22F', '#F3F');
+                
+                maze.style.position = 'absolute';
+                maze.style.left = maze.style.top = '0';
+                maze.style.zIndex = -1;
+                maze.style.width = maze.style.height = '100%';
+                
+                document.body.appendChild(maze);
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="c1"></canvas>
+    </body>
+</html>
