@@ -6,9 +6,16 @@
         <script src="a_maze_ing.js"></script>
         <script>
             window.onload = function() {
+				/* set favicon */
+				let maze = a_maze_ing(8, 8, 1, 1, '#FFF', '#000');
+				let lnk = document.createElement('link');
+				lnk.type = 'image/png';
+				lnk.rel = 'icon';
+				lnk.href = maze.toDataURL("image/png");
+				document.getElementsByTagName('head')[0].appendChild(lnk);
                 
                 /* create a new canvas and style it to look round */
-                var maze = a_maze_ing(16, 16, 24, 8, '#FED', '#BAF');
+                maze = a_maze_ing(24, 24, 24, 8, '#990', '#BAF');
                 
                 maze.style.border       = '2px solid #BAF';
                 maze.style.borderRadius = '50%';
@@ -18,10 +25,12 @@
                 document.body.appendChild(maze);
                 
                 /* fill in an existing canvas */
-                a_maze_ing(18, 12, 4, 4, '#2F2', '#F22', document.getElementById('c1'));
+                a_maze_ing(12, 12, 4, 4, '#282', '#822', document.getElementById('c1'));
+                a_maze_ing(18, 18, 4, 4, '#EAE', '#292', document.getElementById('c2'));
+                a_maze_ing(24, 24, 4, 4, '#500', '#088', document.getElementById('c3'));
                 
                 /* set a background canvas */
-                maze = a_maze_ing((window.innerWidth / 32) | 0, (window.innerHeight / 32) | 0, 32, 32, '#22F', '#F3F');
+                maze = a_maze_ing((window.innerWidth / 16) | 0, (window.innerHeight / 16) | 0, 16, 16, '#222', '#777');
                 
                 maze.style.position = 'absolute';
                 maze.style.left = maze.style.top = '0';
@@ -34,5 +43,7 @@
     </head>
     <body>
         <canvas id="c1"></canvas>
+        <canvas id="c2"></canvas>
+        <canvas id="c3"></canvas>
     </body>
 </html>

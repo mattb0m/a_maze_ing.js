@@ -15,17 +15,6 @@
  * RTRN:
  *      - target canvas element
  * 
- * NOTE: ECMAScript 6 features:
- *      - typed arrays
- *      - let
- *      - const
- * 
- * NOTE: ECMAScript 5 features:
- *      - strict mode
- * 
- * NOTE: HTML5 features:
- *      - canvas
- * 
  * NOTE: The maximum allowed maze size will be limited by your browser's
  *      maximum recursion depth.
  **********************************************************************/
@@ -33,22 +22,21 @@ function a_maze_ing(w, h, tw, ww, tc, wc, t) {
     'use strict';
     
     const
-        DEF_W      = 16,        /* tiles  */
-        DEF_H      = 16,        /* tiles  */
-        DEF_TW     = 16,        /* pixels */
-        DEF_WW     = 1,         /* pixels */
-        W_N        = (1 << 0),
-        W_E        = (1 << 1),
-        W_S        = (1 << 2),
-        W_W        = (1 << 3);
-    
-    let maze_w = w  || DEF_W, 
-        maze_h = h  || DEF_H, 
-        tile_w = tw || DEF_TW, 
-        wall_w = ww || DEF_WW, 
-        target = t  || document.createElement('canvas'),
-        ctx    = target.getContext('2d'),
-        maze   = new Int8Array(maze_w * maze_h);
+	DEF_W      = 16,        /* tiles  */
+	DEF_H      = 16,        /* tiles  */
+	DEF_TW     = 16,        /* pixels */
+	DEF_WW     = 1,         /* pixels */
+	W_N        = (1 << 0),
+	W_E        = (1 << 1),
+	W_S        = (1 << 2),
+	W_W        = (1 << 3),
+	maze_w = w  || DEF_W, 
+	maze_h = h  || DEF_H, 
+	tile_w = tw || DEF_TW, 
+	wall_w = ww || DEF_WW, 
+	target = t  || document.createElement('canvas'),
+	ctx    = target.getContext('2d'),
+	maze   = new Int8Array(maze_w * maze_h);
         
     /* set canvas/ctx styles */
     target.width                 = maze_w * tile_w + (maze_w + 1) * wall_w;
